@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear nuevo tipo de documento</title>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <h1>{% if form.instance.pk %}Editar{% else %}Añadir{% endif %} Tipo de Documento</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary d-inline"type="submit">Guardar</button>
+        <a class="btn btn-primary d-inline"href="{% url 'tiposd' %}">Volver a la lista</a>
+    </form>
+    <br>
+
+    {%endblock content%}
+</body>
+</html>

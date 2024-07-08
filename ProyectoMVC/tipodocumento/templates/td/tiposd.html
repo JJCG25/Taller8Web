@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        font-family: helvetica, arial;
+        width: 100%;
+    }
+    table td,th{
+        border: 2px solid #eee9e99d;
+        padding:8px;
+    }
+    th{
+        background-color: rgb(165, 244, 224);
+    }
+    tr:nth-child(even){
+        background-color: #ffffff;
+    }
+    tr:nth-child(odd){
+        background-color: #92bfba;
+    }
+</style>
+<body>
+    {%extends 'base.html'%}
+    {%block extrahead%}
+        <title>Identificación</title>
+    {%endblock extrahead%}
+
+    {%block content%}
+        <div class="container">
+            <h1>Tipos de Documentos</h1><br>
+            <p>Todo colombiano, desde que nace hasta que muere, tiene derecho a su registro e individualización. 
+                Esto permite que el ciudadano acceda a sus derechos y que el Estado pueda hacer efectivo el cumplimiento 
+                de sus deberes.</p>
+            <a class="btn btn-primary" href=" {%url 'crear_tipodocumento' %}">Añadir</a>
+            <br><br><br>
+            {% if tipos %}
+            <table>
+                <tr><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr>
+                {% for td in tipos %}
+                    <tr><td>{{td.nombre}}</td> <td>{{td.descripcion}}</td> <td><a class="btn btn-warning"href="{% url 'editar_tipodocumento' td.pk %}">Editar</a><br><br> <a class="btn btn-danger"href="{% url 'delete_tipodocumento' td.pk %}">Eliminar</td></a></tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    {%endblock content%}
+        </div>
+</body>
+</html>

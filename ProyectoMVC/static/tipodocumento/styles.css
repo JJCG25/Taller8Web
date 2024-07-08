@@ -1,0 +1,42 @@
+/* styles.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-family: Helvetica;
+    color: #343a40;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+.alert {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #6c757d;
+}
+

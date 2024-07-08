@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <h1>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} Ciudad</h1><br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" class="btn btn-primary d- inline">Guardar</button>
+        <a href="{% url 'ciudades' %}" class="btn btn-secondary mt-3 d-inline">Volver a la lista</a>
+    </form>
+</div>
+{% endblock content %}
+
+</body>
+</html>
